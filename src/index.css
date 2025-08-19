@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* Root color variables */
+:root {
+  /* Updated Gold Palette - Cooler, More Sophisticated */
+  --color-gold: #C5A84A;  /* Muted champagne gold */
+  --color-gold-light: #D8C690;  /* Lighter accent */
+  --color-gold-dark: #A38D3D;  /* Darker variation */
+  --color-gold-accent: #E6D7A8;  /* Highlight color */
+  
+  /* Neutral Base Colors */
+  --color-black: #0A0A0A;  /* Deep true black */
+  --color-gray-dark: #1A1A1A;  /* Dark charcoal */
+  --color-gray-light: #E5E5E5; /* Light neutral */
+  
+  /* Text Colors */
+  --color-text: #FFFFFF;
+  --color-text-secondary: rgba(255,255,255,0.7);
+}
+
+* {
+
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #000000; /* Equivalent to Tailwind's bg-black */
+  color: #ffffff;            /* Equivalent to Tailwind's text-white */
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Heading fonts */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom utility classes */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+.border-gold {
+  border-color: var(--color-gold);
+}
+
+.hover\:bg-gold-dark:hover {
+  background-color: var(--color-gold-dark);
+}
+
+/* Scroll indicator animation */
+.animate-scroll {
+  animation: scrollIndicator 2s infinite;
+}
+
+@keyframes scrollIndicator {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #111827; /* fallback for Tailwind's bg-gray-900 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-gold);
+  border-radius: 9999px;
+}
+
+/* Section reveal animation */
+.reveal-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.reveal-animation.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom animations */
+@keyframes underline {
+  from { transform: scaleX(0) translateX(-50%); }
+  to { transform: scaleX(1) translateX(-50%); }
+}
+
+.animate-underline {
+  animation: underline 0.3s ease-out forwards;
+  transform-origin: center;
+}
+
+/* Glass morphism effect */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr auto auto;
+  }
+}

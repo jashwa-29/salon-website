@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Public Pages -->
+  <url><loc>https://www.swiflare.com/</loc></url>
+  <url><loc>https://www.swiflare.com/about</loc></url>
+  <url><loc>https://www.swiflare.com/contact</loc></url>
+  <url><loc>https://www.swiflare.com/services</loc></url>
+  <url><loc>https://www.swiflare.com/portfolio</loc></url>
+  <url><loc>https://www.swiflare.com/login</loc></url>
+
+  <!-- Example Dynamic Service Detail Pages -->
+  <url><loc>https://www.swiflare.com/services/web-development</loc></url>
+  <url><loc>https://www.swiflare.com/services/seo-services</loc></url>
+  <url><loc>https://www.swiflare.com/services/performance-marketing</loc></url>
+  <url><loc>https://www.swiflare.com/services/mobile-applications</loc></url>
+  <url><loc>https://www.swiflare.com/services/web-applications</loc></url>
+  <url><loc>https://www.swiflare.com/services/social-media-management</loc></url>
+
+  <!-- Optional Dashboard Pages (usually non-indexable) -->
+  <!--
+  <url><loc>https://www.swiflare.com/admin/dashboard</loc></url>
+  <url><loc>https://www.swiflare.com/employee/dashboard</loc></url>
+  -->
+</urlset>
