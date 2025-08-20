@@ -28,7 +28,7 @@ const ServicesSection = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/services');
+        const response = await axios.get('https://salon-backend-3l2q.onrender.com/api/services');
         
         // Transform the API data into our desired format
         const transformedData = {

@@ -25,7 +25,7 @@ const UserProfilePage = () => {
 
         // Fetch appointments
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/appointments/my', {
+        const response = await axios.get('https://salon-backend-3l2q.onrender.com/api/appointments/my', {
           headers: {
             'x-auth-token': `${token}`
           }

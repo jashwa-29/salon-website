@@ -94,11 +94,11 @@ const ServicesPage = () => {
         setLoading(true);
         
         // Fetch services
-        const servicesResponse = await axios.get('http://localhost:5000/api/services');
+        const servicesResponse = await axios.get('https://salon-backend-3l2q.onrender.com/api/services');
         const services = servicesResponse.data;
         
         // Fetch combos (packages)
-        const combosResponse = await axios.get('http://localhost:5000/api/combos');
+        const combosResponse = await axios.get('https://salon-backend-3l2q.onrender.com/api/combos');
         const combos = combosResponse.data;
         
         // Organize data by gender

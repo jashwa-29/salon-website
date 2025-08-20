@@ -17,7 +17,7 @@ const CombosSection = () => {
   useEffect(() => {
     const fetchCombos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/combos');
+        const response = await axios.get('https://salon-backend-3l2q.onrender.com/api/combos');
         
         // Transform the API data into our desired format
         const transformedData = {

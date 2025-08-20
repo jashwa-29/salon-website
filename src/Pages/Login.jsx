@@ -63,8 +63,8 @@ const AuthPage = () => {
 
     try {
       const url = isLogin 
-        ? 'http://localhost:5000/api/auth/login' 
-        : 'http://localhost:5000/api/auth/register';
+        ? 'https://salon-backend-3l2q.onrender.com/api/auth/login' 
+        : 'https://salon-backend-3l2q.onrender.com/api/auth/register';
 
       const payload = isLogin
         ? { email: formData.email, password: formData.password }

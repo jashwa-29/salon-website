@@ -74,7 +74,7 @@ const ServiceBookingModal = ({ isOpen, onClose, item }) => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/appointments',
+        'https://salon-backend-3l2q.onrender.com/api/appointments',
         formData,
         {
           headers: {
