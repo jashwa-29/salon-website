@@ -39,7 +39,7 @@ const Navbar = () => {
     <>
       {/* Desktop Header */}
       <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black py-2 shadow-xl' : 'bg-transparent py-4'}`}>
-        <div className="container mx-auto px-16">
+        <div className="container max-w-7xl mx-auto ">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <motion.div 
