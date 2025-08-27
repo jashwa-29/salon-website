@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { X, Calendar, Clock, Scissors, Check, Sparkles } from 'lucide-react';
+import { X, Calendar, Clock, Scissors, Check, Sparkles, LogIn, UserPlus } from 'lucide-react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ServiceBookingModal = ({ isOpen, onClose, item }) => {
   const [loading, setLoading] = useState(false);
@@ -9,6 +10,10 @@ const ServiceBookingModal = ({ isOpen, onClose, item }) => {
   const [success, setSuccess] = useState(false);
   const [availableSlots, setAvailableSlots] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     services: [],
     appointmentDate: '',
@@ -18,6 +23,11 @@ const ServiceBookingModal = ({ isOpen, onClose, item }) => {
 
   useEffect(() => {
     if (isOpen) {
+      // Check if user is authenticated
+      const token = localStorage.getItem('token');
+      setIsAuthenticated(!!token);
+      setAuthChecked(true);
+      
       // Reset form when modal opens
       setFormData({
         services: [item._id],
@@ -58,6 +68,16 @@ const ServiceBookingModal = ({ isOpen, onClose, item }) => {
       ...prev,
       notes: e.target.value
     }));
+  };
+
+  const handleLoginRedirect = () => {
+    onClose();
+    navigate('/login', { state: { from: 'booking', item } });
+  };
+
+  const handleSignupRedirect = () => {
+    onClose();
+    navigate('/signup', { state: { from: 'booking', item } });
   };
 
   const handleSubmit = async (e) => {
@@ -116,7 +136,37 @@ const ServiceBookingModal = ({ isOpen, onClose, item }) => {
         </button>
 
         <div className="p-6">
-          {success ? (
+          {!authChecked ? (
+            <div className="text-center py-8">
+              <div className="animate-pulse text-gray-500">Checking authentication...</div>
+            </div>
+          ) : !isAuthenticated ? (
+            <div className="text-center py-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/10 text-amber-500 mb-6">
+                <LogIn className="w-8 h-8" />
+              </div>
+              <h2 className="text-2xl font-medium text-gold mb-2">Authentication Required</h2>
+              <p className="text-gray-400 mb-6">Please login or create an account to book appointments.</p>
+              
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={handleLoginRedirect}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-medium rounded-full transition-colors"
+                >
+                  <LogIn className="w-5 h-5" />
+                  Login to Continue
+                </button>
+                
+                <button
+                  onClick={handleSignupRedirect}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-full transition-colors"
+                >
+                  <UserPlus className="w-5 h-5" />
+                  Create New Account
+                </button>
+              </div>
+            </div>
+          ) : success ? (
             <div className="text-center py-8">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 text-green-500 mb-6">
                 <Check className="w-8 h-8" />
